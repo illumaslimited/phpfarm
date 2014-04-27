@@ -16,6 +16,9 @@ vpatch=$4
 
 #gcov='--enable-gcov'
 configoptions="\
+--disable-debug \
+--disable-rpath \
+--enable-fpm \
 --enable-bcmath \
 --enable-calendar \
 --enable-exif \
@@ -24,11 +27,37 @@ configoptions="\
 --enable-pcntl \
 --enable-soap \
 --enable-sockets \
---enable-sqlite-utf8 \
 --enable-wddx \
 --enable-zip \
---with-zlib \
---with-gettext \
+--enable-shmop \
+--enable-sysvmsg \
+--enable-sysvsem \
+--enable-sysvshm \
+--enable-intl \
+--with-fpm-user=nobody \
+--with-fpm-group=nobody \
+--with-libdir=lib64 \
+--with-curl=shared \
+--with-curlwrappers=shared \
+--with-bz2=shared \
+--with-mcrypt=shared \
+--with-mhash=shared \
+--with-mm=shared \
+--with-gd=shared \
+--with-jpeg-dir=/usr \
+--with-png-dir=/usr \
+--with-freetype-dir=shared,/usr \
+--with-libxml-dir=shared,/usr \
+--with-xsl=shared \
+--with-xmlrpc=shared \
+--with-zlib=shared \
+--with-gettext=shared \
+--with-pdo-mysql=shared \
+--with-openssl=shared \
+--with-readline=shared \
+--with-mysql=shared \
+--with-mysqli=shared \
+--with-pear \
 $gcov"
 
 echo $version $vmajor $vminor $vpatch
