@@ -41,11 +41,13 @@ srcdir="php-$version"
 #directory with source archives
 bzipsdir='bzips'
 #directory phps get installed into
-instbasedir="`readlink -f "$basedir/../inst"`"
+instbasedir="/opt/illumas.net"
 #directory this specific version gets installed into
 instdir="$instbasedir/php-$version"
 #directory where all bins are symlinked
 shbindir="$instbasedir/bin"
+#directory for initarget
+initarget="/etc/opt/illumas.net/php-$version/lib/php.ini"
 
 #we need a php version
 if [ "x$version" = 'x' ]; then
@@ -113,6 +115,10 @@ cd "$srcdir"
 ./configure \
  --prefix="$instdir" \
  --exec-prefix="$instdir" \
+ --sysconfdir="/etc/opt/illumas.net/php-$version" \
+ --localstatedir="/var/opt/illumas.net/php-$version" \
+ --with-config-file-path="/etc/opt/illumas.net/php-$version/lib" \
+ --with-config-file-scan-dir="/etc/opt/illumas.net/php-$version/lib/conf.d" \
  --enable-debug \
  --disable-short-tags \
  --without-pear \
